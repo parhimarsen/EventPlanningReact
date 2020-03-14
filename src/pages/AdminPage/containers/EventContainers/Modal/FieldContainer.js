@@ -15,7 +15,7 @@ class FieldContainer extends React.PureComponent {
   }
 
   deleteField = () => {
-    if(this.props.isAdd){
+    if (this.props.isAdd) {
       this.props.handleFieldDelete(this.props.field);
     }
     if (!this.props.isAdd) {
@@ -23,14 +23,15 @@ class FieldContainer extends React.PureComponent {
         Event: this.props.event,
         Field: this.props.field
       };
-      fetch("http://localhost:51560/api/fields", {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(eventField)
-      }).then(this.props.handleFieldDelete(this.props.event, this.props.field));
+      // fetch("http://localhost:51560/api/fields", {
+      //   method: "DELETE",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify(eventField)
+      // }).then(this.props.handleFieldDelete(this.props.event, this.props.field));
+      this.props.handleFieldDelete(this.props.event, this.props.field);
     }
   };
 

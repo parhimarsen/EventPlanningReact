@@ -35,12 +35,6 @@ const Navigation = props => {
           aria-label="simple tabs example"
         >
           <Tab
-            value={"/admin/users"}
-            label="Users"
-            component={Link}
-            to={`${props.url}/users`}
-          />
-          <Tab
             value={"/admin/events"}
             label="Events"
             component={Link}

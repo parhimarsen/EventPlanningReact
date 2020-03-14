@@ -63,16 +63,18 @@ class AddFieldConrainer extends React.PureComponent {
         Value: this.state.value
       };
       if (this.state.nameError === false && this.state.valueError === false) {
-        fetch("http://localhost:51560/api/fields", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(eventField)
-        })
-          .then(this.props.handleFieldAddEventMenu())
-          .then(this.state.handleFieldAdd(Event, Field));
+        // fetch("http://localhost:51560/api/fields", {
+        //   method: "POST",
+        //   headers: {
+        //     Accept: "application/json",
+        //     "Content-Type": "application/json"
+        //   },
+        //   body: JSON.stringify(eventField)
+        // })
+        //   .then(this.props.handleFieldAddEventMenu())
+        //   .then(this.state.handleFieldAdd(Event, Field));
+        this.props.handleFieldAddEventMenu();
+        this.state.handleFieldAdd(Event, Field);
         this.setState({ name: "", value: "" });
       }
     }
@@ -90,7 +92,7 @@ class AddFieldConrainer extends React.PureComponent {
       this.setState({ fieldValueError: "", valueError: false });
     }
   };
-  
+
   render() {
     return (
       <AddField

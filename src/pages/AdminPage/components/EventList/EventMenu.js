@@ -7,8 +7,6 @@ import EditEventModalContainer from "../../containers/EventContainers/Modal/Edit
 import DeleteEventContainer from "../../containers/EventContainers/Modal/DeleteEventContainer";
 
 const EventMenu = props => {
-  const open = Boolean(props.anchorEl);
-
   return (
     <>
       <div>
@@ -24,7 +22,7 @@ const EventMenu = props => {
           id="long-menu"
           anchorEl={props.anchorEl}
           keepMounted
-          open={open}
+          open={!!props.anchorEl}
           onClose={props.handleClose}
           PaperProps={{
             style: {
@@ -45,7 +43,7 @@ const EventMenu = props => {
           ))}
         </Menu>
       </div>
-      {props.selectedOption === "Edit" && !Boolean(props.secondAnchorEl) && (
+      {props.selectedOption === "Edit" && !props.secondAnchorEl && (
         <EditEventModalContainer
           handleFieldAdd={props.handleFieldAdd}
           handleFieldDelete={props.handleFieldDelete}
@@ -55,7 +53,7 @@ const EventMenu = props => {
           handleFieldAddEventMenu={props.handleFieldAddEventMenu}
         />
       )}
-      {props.selectedOption === "Delete" && !Boolean(props.secondAnchorEl) && (
+      {props.selectedOption === "Delete" && !props.secondAnchorEl && (
         <DeleteEventContainer
           event={props.event}
           openModal={true}

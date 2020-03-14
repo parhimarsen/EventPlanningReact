@@ -93,17 +93,20 @@ class EditEventModalContainer extends React.PureComponent {
 
   addEvent = () => {
     if (this.state.nameError === false && this.state.dateError === false) {
-      fetch("http://localhost:51560/api/events", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.state.event)
-      })
-        .then(() => this.props.handleEventAdd(this.state.event))
-        .then(() => this.setState({ openModal: false }))
-        .then(() => this.props.handleEventAddModalClose());
+      // fetch("http://localhost:51560/api/events", {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify(this.state.event)
+      // })
+      //   .then(() => this.props.handleEventAdd(this.state.event))
+      //   .then(() => this.setState({ openModal: false }))
+      //   .then(() => this.props.handleEventAddModalClose());
+      this.props.handleEventAdd(this.state.event);
+      this.setState({ openModal: false });
+      this.props.handleEventAddModalClose();
     }
   };
 

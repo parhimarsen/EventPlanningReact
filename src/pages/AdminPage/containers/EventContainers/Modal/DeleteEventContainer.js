@@ -15,16 +15,18 @@ class DeleteEventContainer extends React.Component {
   };
 
   deleteEvent = () => {
-    fetch("http://localhost:51560/api/events", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.props.event)
-    })
-      .then(this.props.handleEventDelete(this.props.event))
-      .then(this.setState({ openModal: false }));
+    // fetch("http://localhost:51560/api/events", {
+    //   method: "DELETE",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(this.props.event)
+    // })
+    //   .then(this.props.handleEventDelete(this.props.event))
+    //   .then(this.setState({ openModal: false }));
+    this.props.handleEventDelete(this.props.event);
+    this.setState({ openModal: false });
   };
 
   render() {

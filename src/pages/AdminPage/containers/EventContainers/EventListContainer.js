@@ -24,11 +24,12 @@ class EventListContainer extends React.Component {
   };
 
   refreshData() {
-    fetch("http://localhost:51560/api/events")
-      .then(response => response.json())
-      .then(events => {
-        this.setState({ events: events });
-      });
+    // fetch("http://localhost:51560/api/events")
+    //   .then(response => response.json())
+    //   .then(events => {
+    //     this.setState({ events: events });
+    //   });
+    this.setState({ events: this.state.events });
   }
 
   handleFieldAdd = (toggledEvent, field) => {
